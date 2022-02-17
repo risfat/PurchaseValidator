@@ -163,7 +163,7 @@
                                                         <a href="javascript: void(0);" class="action-icon" id="license-details" data-bs-toggle="modal"
                                                         data-bs-target="#edit-license-modal" data-attr="{{ $license->id }}"> <i
                                                                 class="mdi mdi-square-edit-outline"></i></a>
-                                                        <a href="#" class="action-icon"> <i
+                                                        <a href="{{ route('admin.license.delete',$license->id) }}" class="action-icon"> <i
                                                                 class="mdi mdi-delete"></i></a>
                                                     </td>
                                                 </tr>

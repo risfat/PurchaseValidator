@@ -49,6 +49,7 @@ Route::group(['prefix' => 'admin' , 'middleware' => ['auth','role:admin|superadm
     /* ------------------------------ License Route ----------------------------- */
 
     Route::get('/licenses', [LicenseController::class, 'index'])->name('admin.license');
+    Route::get('/licenses/{id}/delete', [LicenseController::class, 'destroy'])->name('admin.license.delete');
 
     /* ----------------------------- Customers Route ----------------------------- */
 

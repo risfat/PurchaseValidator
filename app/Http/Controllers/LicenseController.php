@@ -88,6 +88,9 @@ class LicenseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $license = License::find($id);
+        $license->delete();
+
+        return redirect()->route('admin.license')->withSuccess('License Deleted Successfully.');
     }
 }
