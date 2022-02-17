@@ -93,4 +93,38 @@ class LicenseController extends Controller
 
         return redirect()->route('admin.license')->withSuccess('License Deleted Successfully.');
     }
+
+
+    public function verify($key,$domain,$cid,$pid)
+    {
+        $license = License::where('license_key',$key)->first();
+
+        if(!$license)
+        {
+            return response()->json(['status' => 'error', 'message' => 'Invalid License Key.']);
+        }
+
+        if($license->status == 0)
+        {
+            return response()->json(['status' => 'error', 'message' => 'License Key is Suspended.']);
+        }
+
+        if($license->domain != $domain)
+        {
+            return response()->json(['status' => 'error', 'message' => 'Invalid Domain.']);
+        }
+
+        if($license->buyer_id != $cid)
+        {
+            return response()->json(['status' => 'error', 'message' => 'Invalid Customer.']);
+        }
+
+        if($license->product_id != $pid)
+        {
+            return response()->json(['status' => 'error', 'message' => 'Invalid Product.']);
+        }
+
+        return response()->json(['status' => 'success', 'message' => 'License Key is Valid.']);
+
+    }
 }
