@@ -30,6 +30,10 @@
     <!-- third party css -->
     @stack('styles')
 
+    <!-- Live Wire -->
+
+    @livewireStyles
+
 </head>
 
 @php
@@ -94,7 +98,7 @@ $user = Auth::user();
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="d-flex align-items-start">
                                                 <img class="d-flex me-2 rounded-circle"
-                                                    src="{{ asset('back/images/users/user-2.jpg') }}"
+                                                    src="{{ asset('admin/images/users/user-2.jpg') }}"
                                                     alt="Generic placeholder image" height="32">
                                                 <div class="w-100">
                                                     <h5 class="m-0 font-14">Erwin E. Brown</h5>
@@ -107,7 +111,7 @@ $user = Auth::user();
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="d-flex align-items-start">
                                                 <img class="d-flex me-2 rounded-circle"
-                                                    src="{{ asset('back/images/users/user-5.jpg') }}"
+                                                    src="{{ asset('admin/images/users/user-5.jpg') }}"
                                                     alt="Generic placeholder image" height="32">
                                                 <div class="w-100">
                                                     <h5 class="m-0 font-14">Jacob Deo</h5>
@@ -155,19 +159,19 @@ $user = Auth::user();
                                 <div class="row g-0">
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ asset('back/images/brands/slack.png') }}" alt="slack">
+                                            <img src="{{ asset('admin/images/brands/slack.png') }}" alt="slack">
                                             <span>Slack</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ asset('back/images/brands/github.png') }}" alt="Github">
+                                            <img src="{{ asset('admin/images/brands/github.png') }}" alt="Github">
                                             <span>GitHub</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ asset('back/images/brands/dribbble.png') }}" alt="dribbble">
+                                            <img src="{{ asset('admin/images/brands/dribbble.png') }}" alt="dribbble">
                                             <span>Dribbble</span>
                                         </a>
                                     </div>
@@ -176,20 +180,20 @@ $user = Auth::user();
                                 <div class="row g-0">
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ asset('back/images/brands/bitbucket.png') }}"
+                                            <img src="{{ asset('admin/images/brands/bitbucket.png') }}"
                                                 alt="bitbucket">
                                             <span>Bitbucket</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ asset('back/images/brands/dropbox.png') }}" alt="dropbox">
+                                            <img src="{{ asset('admin/images/brands/dropbox.png') }}" alt="dropbox">
                                             <span>Dropbox</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="{{ asset('back/images/brands/g-suite.png') }}" alt="G Suite">
+                                            <img src="{{ asset('admin/images/brands/g-suite.png') }}" alt="G Suite">
                                             <span>G Suite</span>
                                         </a>
                                     </div>
@@ -204,31 +208,31 @@ $user = Auth::user();
                         <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light"
                             data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                             aria-expanded="false">
-                            <img src="{{ asset('back/images/flags/us.jpg') }}" alt="user-image" height="16">
+                            <img src="{{ asset('admin/images/flags/us.jpg') }}" alt="user-image" height="16">
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="{{ asset('back/images/flags/germany.jpg') }}" alt="user-image"
+                                <img src="{{ asset('admin/images/flags/germany.jpg') }}" alt="user-image"
                                     class="me-1" height="12"> <span class="align-middle">German</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="{{ asset('back/images/flags/italy.jpg') }}" alt="user-image"
+                                <img src="{{ asset('admin/images/flags/italy.jpg') }}" alt="user-image"
                                     class="me-1" height="12"> <span class="align-middle">Italian</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="{{ asset('back/images/flags/spain.jpg') }}" alt="user-image"
+                                <img src="{{ asset('admin/images/flags/spain.jpg') }}" alt="user-image"
                                     class="me-1" height="12"> <span class="align-middle">Spanish</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="{{ asset('back/images/flags/russia.jpg') }}" alt="user-image"
+                                <img src="{{ asset('admin/images/flags/russia.jpg') }}" alt="user-image"
                                     class="me-1" height="12"> <span class="align-middle">Russian</span>
                             </a>
 
@@ -461,34 +465,28 @@ $user = Auth::user();
                         </li>
 
 
-                        <li class="menu-title mt-2">Ecommerce</li>
+                        <li class="menu-title mt-2">Licenses</li>
 
 
 
                         <li>
-                            <a href="#sidebarOrders" data-bs-toggle="collapse">
+                            <a href="#sidebarLicenses" data-bs-toggle="collapse">
                                 <i class="mdi mdi-clipboard-text-outline"></i>
-                                <span> Orders </span>
+                                <span> Licenses </span>
                                 <span class="menu-arrow"></span>
                             </a>
-                            <div class="collapse" id="sidebarOrders">
+                            <div class="collapse" id="sidebarLicenses">
                                 <ul class="nav-second-level">
                                     <li>
-                                        <a href="{{ route('order.index') }}">All Orders</a>
+                                        <a href="{{ route('admin.license') }}">All Licenses</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('order.pending') }}">Pending Orders</a>
+                                        <a href="#">Expired Licenses</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('order.processing') }}">Processing Orders</a>
+                                        <a href="#">Active Licenses</a>
                                     </li>
-                                    <li>
-                                        <a href="{{ route('order.completed') }}">Completed Orders</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('order.cancelled') }}">Declined Orders</a>
-                                    </li>
-                                </ul>
+                               </ul>
                             </div>
                         </li>
 
@@ -507,82 +505,9 @@ $user = Auth::user();
                                     <li>
                                         <a href="{{ route('products.index') }}">Products List</a>
                                     </li>
-                                    <li>
-                                        <a href="{{ route('review.index') }}">Product Reviews</a>
-                                    </li>
-
                                 </ul>
                             </div>
                         </li>
-                        <li>
-                            <a href="#sidebarProductCategory" data-bs-toggle="collapse">
-                                <i class="mdi mdi-format-list-bulleted"></i>
-                                <span> Category </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <div class="collapse" id="sidebarProductCategory">
-                                <ul class="nav-second-level">
-                                    <li>
-                                        <a href="{{ route('category.create') }}">Add Category</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('category.index') }}">Category List</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-
-
-
-
-                        <li>
-                            <a href="#sidebarCoupons" data-bs-toggle="collapse">
-                                <i class="mdi mdi-label-percent-outline"></i>
-                                <span> Coupons </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <div class="collapse" id="sidebarCoupons">
-                                <ul class="nav-second-level">
-                                    <li>
-                                        <a href="{{ route('coupons.create') }}">Add Coupons</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('coupons.index') }}">Coupons List</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-
-
-
-                        <li>
-                            <a href="#sidebarDeposits" data-bs-toggle="collapse">
-                                <i class="mdi mdi-account-cash-outline"></i>
-                                <span> Deposits </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <div class="collapse" id="sidebarDeposits">
-                                <ul class="nav-second-level">
-                                    <li>
-                                        <a href="{{ route('deposit.index') }}">All Deposit</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('deposit.pending') }}">Pending Deposit</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('deposit.processing') }}">Processing Deposit</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('deposit.completed') }}">Completed Deposit</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('deposit.cancelled') }}">Declined Deposit</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-
-
 
                         <li>
                             <a href="#sidebarCustomers" data-bs-toggle="collapse">
@@ -593,66 +518,23 @@ $user = Auth::user();
                             <div class="collapse" id="sidebarCustomers">
                                 <ul class="nav-second-level">
                                     <li>
-                                        <a href="{{ route('customer.create') }}">Add Customer</a>
+                                        <a href="{{ route('customers.create') }}">Add Customer</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('customer.index') }}">Customers List</a>
+                                        <a href="{{ route('customers.index') }}">Customers List</a>
                                     </li>
-                                    <li>
-                                        <a href="{{ route('customer.index.banned') }}">Banned Customers</a>
-                                    </li>
+
                                 </ul>
                             </div>
                         </li>
 
-                        <li>
-                            <a href="#sidebarUsers" data-bs-toggle="collapse">
-                                <i class="mdi mdi-account-multiple-outline"></i>
-                                <span> Users </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <div class="collapse" id="sidebarUsers">
-                                <ul class="nav-second-level">
-                                    <li>
-                                        <a href="{{ route('user.create') }}">Add User</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('user.index') }}">Users List</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('user.index.banned') }}">Banned Users</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
 
 
                         <li class="menu-title mt-2">Apps</li>
 
-                        <li>
-                            <a href="#sidebarSliders" data-bs-toggle="collapse">
-                                <i class="mdi mdi-image-multiple-outline"></i>
-                                <span> Sliders </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <div class="collapse" id="sidebarSliders">
-                                <ul class="nav-second-level">
-                                    <li>
-                                        <a href="{{ route('slider.create') }}">New Slider</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('slider.index') }}">Sliders List</a>
-                                    </li>
-                                    {{-- <li>
-                                        <a href="#">Slider Settings</a>
-                                    </li> --}}
-                                </ul>
-                            </div>
-                        </li>
-
 
                         <li>
-                            <a href="{{ route('admin.calendar') }}">
+                            <a href="#">
                                 <i class="mdi mdi-calendar"></i>
                                 <span> Calendar </span>
                             </a>
@@ -705,70 +587,6 @@ $user = Auth::user();
                                 </ul>
                             </div>
                         </li>
-
-                        <li class="menu-title mt-2">System Settings</li>
-
-                        <li>
-                            <a href="#sidebarSettings" data-bs-toggle="collapse">
-                                <i class="mdi mdi-application-cog"></i>
-                                <span> General Settings </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <div class="collapse" id="sidebarSettings">
-                                <ul class="nav-second-level">
-                                    <li>
-                                        <a href="{{ route('settings.index') }}">Website Settings</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('settings.home_settings') }}">HomePage Settings</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('maintenance.settings') }}">Maintenance Mode</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#sidebarEmailSettings" data-bs-toggle="collapse">
-                                <i class="mdi mdi-email-sync-outline"></i>
-                                <span> Email Settings </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <div class="collapse" id="sidebarEmailSettings">
-                                <ul class="nav-second-level">
-                                    <li>
-                                        <a href="#">Email Templete</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('mail.settings') }}">Email Configuration</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#sidebarPaymentSettings" data-bs-toggle="collapse">
-                                <i class="mdi mdi-cash-usd-outline"></i>
-                                <span> Payment Settings </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <div class="collapse" id="sidebarPaymentSettings">
-                                <ul class="nav-second-level">
-                                    <li>
-                                        <a href="#">New Method</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Payment Methods</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-
-                        {{-- <li>
-                            <a href="apps-calendar.html">
-                                <i class="mdi mdi-calendar"></i>
-                                <span> Calendar </span>
-                            </a>
-                        </li> --}}
                     </ul>
 
                 </div>
@@ -889,7 +707,7 @@ $user = Auth::user();
                         <a href="javascript: void(0);" class="text-reset notification-item">
                             <div class="d-flex align-items-start noti-user-item">
                                 <div class="position-relative me-2">
-                                    <img src="{{ asset('back/images/users/user-10.jpg') }}"
+                                    <img src="{{ asset('admin/images/users/user-10.jpg') }}"
                                         class="rounded-circle avatar-sm" alt="user-pic">
                                     <i class="mdi mdi-circle user-status online"></i>
                                 </div>
@@ -905,7 +723,7 @@ $user = Auth::user();
                         <a href="javascript: void(0);" class="text-reset notification-item">
                             <div class="d-flex align-items-start noti-user-item">
                                 <div class="position-relative me-2">
-                                    <img src="{{ asset('back/images/users/user-1.jpg') }}"
+                                    <img src="{{ asset('admin/images/users/user-1.jpg') }}"
                                         class="rounded-circle avatar-sm" alt="user-pic">
                                     <i class="mdi mdi-circle user-status away"></i>
                                 </div>
@@ -922,7 +740,7 @@ $user = Auth::user();
                         <a href="javascript: void(0);" class="text-reset notification-item">
                             <div class="d-flex align-items-start noti-user-item">
                                 <div class="position-relative me-2">
-                                    <img src="{{ asset('back/images/users/user-9.jpg') }}"
+                                    <img src="{{ asset('admin/images/users/user-9.jpg') }}"
                                         class="rounded-circle avatar-sm" alt="user-pic">
                                     <i class="mdi mdi-circle user-status busy"></i>
                                 </div>
@@ -943,7 +761,7 @@ $user = Auth::user();
                         <a href="javascript: void(0);" class="text-reset notification-item">
                             <div class="d-flex align-items-start noti-user-item">
                                 <div class="position-relative me-2">
-                                    <img src="{{ asset('back/images/users/user-2.jpg') }}"
+                                    <img src="{{ asset('admin/images/users/user-2.jpg') }}"
                                         class="rounded-circle avatar-sm" alt="user-pic">
                                     <i class="mdi mdi-circle user-status online"></i>
                                 </div>
@@ -959,7 +777,7 @@ $user = Auth::user();
                         <a href="javascript: void(0);" class="text-reset notification-item">
                             <div class="d-flex align-items-start noti-user-item">
                                 <div class="position-relative me-2">
-                                    <img src="{{ asset('back/images/users/user-4.jpg') }}"
+                                    <img src="{{ asset('admin/images/users/user-4.jpg') }}"
                                         class="rounded-circle avatar-sm" alt="user-pic">
                                     <i class="mdi mdi-circle user-status away"></i>
                                 </div>
@@ -975,7 +793,7 @@ $user = Auth::user();
                         <a href="javascript: void(0);" class="text-reset notification-item">
                             <div class="d-flex align-items-start noti-user-item">
                                 <div class="position-relative me-2">
-                                    <img src="{{ asset('back/images/users/user-5.jpg') }}"
+                                    <img src="{{ asset('admin/images/users/user-5.jpg') }}"
                                         class="rounded-circle avatar-sm" alt="user-pic">
                                     <i class="mdi mdi-circle user-status online"></i>
                                 </div>
@@ -992,7 +810,7 @@ $user = Auth::user();
                         <a href="javascript: void(0);" class="text-reset notification-item">
                             <div class="d-flex align-items-start noti-user-item">
                                 <div class="position-relative me-2">
-                                    <img src="{{ asset('back/images/users/user-6.jpg') }}"
+                                    <img src="{{ asset('admin/images/users/user-6.jpg') }}"
                                         class="rounded-circle avatar-sm" alt="user-pic">
                                     <i class="mdi mdi-circle user-status online"></i>
                                 </div>
@@ -1008,7 +826,7 @@ $user = Auth::user();
                         <a href="javascript: void(0);" class="text-reset notification-item">
                             <div class="d-flex align-items-start noti-user-item">
                                 <div class="position-relative me-2">
-                                    <img src="{{ asset('back/images/users/user-7.jpg') }}"
+                                    <img src="{{ asset('admin/images/users/user-7.jpg') }}"
                                         class="rounded-circle avatar-sm" alt="user-pic">
                                     <i class="mdi mdi-circle user-status busy"></i>
                                 </div>
@@ -1024,7 +842,7 @@ $user = Auth::user();
                         <a href="javascript: void(0);" class="text-reset notification-item">
                             <div class="d-flex align-items-start noti-user-item">
                                 <div class="position-relative me-2">
-                                    <img src="{{ asset('back/images/users/user-8.jpg') }}"
+                                    <img src="{{ asset('admin/images/users/user-8.jpg') }}"
                                         class="rounded-circle avatar-sm" alt="user-pic">
                                     <i class="mdi mdi-circle user-status away"></i>
                                 </div>
@@ -1262,6 +1080,10 @@ $user = Auth::user();
 
     <!-- App js -->
     <script src="{{ asset('admin/js/app.min.js') }}"></script>
+
+    <!--- Live Wire Js --->
+
+    @livewireScripts
 
 </body>
 

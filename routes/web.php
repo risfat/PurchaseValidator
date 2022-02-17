@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\AppController;
+use App\Http\Controllers\LicenseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,12 +31,46 @@ require __DIR__.'/auth.php';
 
 Route::get('/', function () {
     return redirect()->intended('admin/dashboard');
-});
+})->name('home');
 
 Route::group(['prefix' => 'admin' , 'middleware' => ['auth','role:admin|superadmin']], function () {
 
     /* --------------------------- Basic Admin Routes --------------------------- */
 
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/profile', [AdminController::class, 'adminProfle'])->name('admin.profile');
+    Route::post('/profile/update', [AdminController::class, 'adminProfleUpdate'])->name('admin.profile.update');
+
+    /* ----------------------------- Products Route ----------------------------- */
+
+    Route::resource('/products', ProductController::class);
+
+
+    /* ------------------------------ License Route ----------------------------- */
+
+    Route::get('/licenses', [LicenseController::class, 'index'])->name('admin.license');
+
+    /* ----------------------------- Customers Route ----------------------------- */
+
+    Route::resource('/customers', CustomerController::class);
+
+    /* --------------------------------- Tickets -------------------------------- */
+
+    Route::get('/support/ticket', [TicketController::class, 'index'])->name('ticket.index');
+    Route::get('/support/ticket/serving', [TicketController::class, 'serving_tickets'])->name('ticket.serving');
+    Route::get('/support/ticket/served', [TicketController::class, 'served_tickets'])->name('ticket.served');
+    // Route::get('/support/ticket/create', [TicketController::class, 'create'])->name('ticket.create');
+    Route::post('/support/ticket/create', [TicketController::class, 'store'])->name('ticket.store');
+    Route::get('/support/ticket/{id}/edit', [TicketController::class, 'edit'])->name('ticket.edit');
+    Route::post('/support/ticket/{id}/update', [TicketController::class, 'update'])->name('ticket.update');
+    Route::post('/support/ticket/{id}/update/ajax', [TicketController::class, 'update_ajax'])->name('ticket.update.ajax');
+    Route::get('/support/ticket/{id}/delete', [TicketController::class, 'destroy'])->name('ticket.delete');
+    Route::get('/support/ticket/{id}/close', [TicketController::class, 'ticket_close'])->name('ticket.close');
+
+
+    /* ------------------------------ Apps Routes ----------------------------- */
+
+    Route::get('/calendar', [AppController::class, 'calendar'])->name('admin.calendar');
+
 
 });

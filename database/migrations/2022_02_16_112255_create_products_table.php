@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('image');
             $table->integer('price');
-            $table->integer('licenced');
+            $table->integer('licensed');
             $table->boolean('status')->default(true);
             $table->timestamps();
         });
