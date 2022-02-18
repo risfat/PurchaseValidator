@@ -243,7 +243,7 @@
                                         <tbody>
                                             <tr>
                                                 <td style="width: 36px;">
-                                                    <img src="../assets/images/users/user-2.jpg" alt="contact-img"
+                                                    <img src="{{ asset('admin/images/users/user-2.jpg') }}" alt="contact-img"
                                                         title="contact-img" class="rounded-circle avatar-sm" />
                                                 </td>
 
@@ -274,7 +274,7 @@
 
                                             <tr>
                                                 <td style="width: 36px;">
-                                                    <img src="../assets/images/users/user-3.jpg" alt="contact-img"
+                                                    <img src="{{ asset('admin/images/users/user-3.jpg') }}" alt="contact-img"
                                                         title="contact-img" class="rounded-circle avatar-sm" />
                                                 </td>
 
@@ -304,7 +304,7 @@
                                             </tr>
                                             <tr>
                                                 <td style="width: 36px;">
-                                                    <img src="../assets/images/users/user-4.jpg" alt="contact-img"
+                                                    <img src="{{ asset('admin/images/users/user-4.jpg') }}" alt="contact-img"
                                                         title="contact-img" class="rounded-circle avatar-sm" />
                                                 </td>
 
@@ -334,7 +334,7 @@
                                             </tr>
                                             <tr>
                                                 <td style="width: 36px;">
-                                                    <img src="../assets/images/users/user-5.jpg" alt="contact-img"
+                                                    <img src="{{ asset('admin/images/users/user-5.jpg') }}" alt="contact-img"
                                                         title="contact-img" class="rounded-circle avatar-sm" />
                                                 </td>
 
@@ -364,7 +364,7 @@
                                             </tr>
                                             <tr>
                                                 <td style="width: 36px;">
-                                                    <img src="../assets/images/users/user-6.jpg" alt="contact-img"
+                                                    <img src="{{ asset('admin/images/users/user-6.jpg') }}" alt="contact-img"
                                                         title="contact-img" class="rounded-circle avatar-sm" />
                                                 </td>
 
@@ -583,27 +583,6 @@
             </div> <!-- container -->
 
         </div> <!-- content -->
-
-        <!-- Footer Start -->
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6">
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script> &copy; UBold theme by <a href="">Coderthemes</a>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="text-md-end footer-links d-none d-sm-block">
-                            <a href="javascript:void(0);">About Us</a>
-                            <a href="javascript:void(0);">Help</a>
-                            <a href="javascript:void(0);">Contact Us</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- end Footer -->
 
     </div>
 
