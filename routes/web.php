@@ -49,11 +49,23 @@ Route::group(['prefix' => 'admin' , 'middleware' => ['auth','role:admin|superadm
     /* ------------------------------ License Route ----------------------------- */
 
     Route::get('/licenses', [LicenseController::class, 'index'])->name('admin.license');
+    Route::get('/licenses/{id}/details', [LicenseController::class, 'show'])->name('license.details');
     Route::get('/licenses/{id}/delete', [LicenseController::class, 'destroy'])->name('admin.license.delete');
+    Route::get('/licenses/active', [LicenseController::class, 'active_licenses'])->name('active.license');
+    Route::get('/licenses/expired', [LicenseController::class, 'expired_licenses'])->name('expired.license');
+
 
     /* ----------------------------- Customers Route ----------------------------- */
 
-    Route::resource('/customers', CustomerController::class);
+    Route::get('/customers', [CustomerController::class, 'index'])->name('customer.index');
+    Route::get('/customer/{id}/details', [CustomerController::class, 'details'])->name('customer.details');
+    Route::get('/customer/create',[CustomerController::class, 'create'])->name('customer.create');
+    Route::post('/customer/create',[CustomerController::class, 'store'])->name('customer.store');
+    // Route::get('/customer/{id}/edit', [CustomerController::class,'edit'])->name('customer.edit');
+    Route::post('/customer/{id}/update', [CustomerController::class,'update'])->name('customer.update');
+    Route::get('/customer/{id}/delete', [CustomerController::class,'delete'])->name('customer.delete');
+
+
 
     /* --------------------------------- Tickets -------------------------------- */
 

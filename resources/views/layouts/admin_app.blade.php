@@ -481,10 +481,10 @@ $user = Auth::user();
                                         <a href="{{ route('admin.license') }}">All Licenses</a>
                                     </li>
                                     <li>
-                                        <a href="#">Expired Licenses</a>
+                                        <a href="{{ route('active.license') }}">Expired Licenses</a>
                                     </li>
                                     <li>
-                                        <a href="#">Active Licenses</a>
+                                        <a href="{{ route('expired.license') }}">Active Licenses</a>
                                     </li>
                                </ul>
                             </div>
@@ -518,10 +518,10 @@ $user = Auth::user();
                             <div class="collapse" id="sidebarCustomers">
                                 <ul class="nav-second-level">
                                     <li>
-                                        <a href="{{ route('customers.create') }}">Add Customer</a>
+                                        <a href="{{ route('customer.create') }}">Add Customer</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('customers.index') }}">Customers List</a>
+                                        <a href="{{ route('customer.index') }}">Customers List</a>
                                     </li>
 
                                 </ul>
@@ -534,7 +534,7 @@ $user = Auth::user();
 
 
                         <li>
-                            <a href="#">
+                            <a href="{{ route('admin.calendar') }}">
                                 <i class="mdi mdi-calendar"></i>
                                 <span> Calendar </span>
                             </a>

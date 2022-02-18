@@ -25,6 +25,28 @@ class LicenseController extends Controller
         return view('admin.licenses.index', compact('licenses'));
     }
 
+    public function active_licenses()
+    {
+        $licenses = License::where('expired_at', '<', date('Y-m-d H:i:s'))->get()->map(function($license){
+            $license->customer = User::find($license->buyer_id)->name;
+            $license->product = Product::find($license->product_id)->name;
+            return $license;
+        })->sortByDesc('id');
+
+        return view('admin.licenses.index', compact('licenses'));
+    }
+
+    public function expired_licenses()
+    {
+        $licenses = License::where('expired_at', '>', date('Y-m-d H:i:s'))->get()->map(function($license){
+            $license->customer = User::find($license->buyer_id)->name;
+            $license->product = Product::find($license->product_id)->name;
+            return $license;
+        })->sortByDesc('id');
+
+        return view('admin.licenses.index', compact('licenses'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

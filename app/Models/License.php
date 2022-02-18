@@ -18,4 +18,9 @@ class License extends Model
         'product_id',
         'buyer_id'
     ];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }
