@@ -47,26 +47,7 @@ class LicenseController extends Controller
         return view('admin.licenses.index', compact('licenses'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -79,28 +60,6 @@ class LicenseController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -117,9 +76,17 @@ class LicenseController extends Controller
     }
 
 
-    public function verify($key,$domain,$cid,$pid)
+
+
+
+    /* -------------------------------------------------------------------------- */
+    /*                                 API METHODS                                */
+    /* -------------------------------------------------------------------------- */
+
+
+    public function verify(request $request, $domain)
     {
-        $license = License::where('license_key',$key)->first();
+        $license = License::where('license_key',$request->key)->first();
 
         if(!$license)
         {
@@ -131,17 +98,57 @@ class LicenseController extends Controller
             return response()->json(['status' => 'error', 'message' => 'License Key is Suspended.']);
         }
 
-        if($license->domain != $domain)
+        if($license->domain != $request->domain)
         {
             return response()->json(['status' => 'error', 'message' => 'Invalid Domain.']);
         }
 
-        if($license->buyer_id != $cid)
+        if($license->buyer_id != $request->cid)
         {
             return response()->json(['status' => 'error', 'message' => 'Invalid Customer.']);
         }
 
-        if($license->product_id != $pid)
+        if($license->product_id != $request->pid)
+        {
+            return response()->json(['status' => 'error', 'message' => 'Invalid Product.']);
+        }
+
+        return response()->json(['status' => 'success', 'message' => 'License Key is Valid.']);
+
+    }
+
+
+    public function verify_license(request $request)
+    {
+        // dd($request->all());
+        $license = License::where('license_key',$request->key)->first();
+
+        if(!$license)
+        {
+            return response()->json(['status' => 'error', 'message' => 'Invalid License Key.']);
+        }
+
+        if($license->status == 0)
+        {
+            return response()->json(['status' => 'error', 'message' => 'License Key is Suspended.']);
+        }
+
+        if($license->expired_at < date('Y-m-d H:i:s'))
+        {
+            return response()->json(['status' => 'error', 'message' => 'License Key is Expired.']);
+        }
+
+        if($license->domain != $request->domain)
+        {
+            return response()->json(['status' => 'error', 'message' => 'Invalid Domain.']);
+        }
+
+        if($license->buyer_id != $request->cid)
+        {
+            return response()->json(['status' => 'error', 'message' => 'Invalid Customer.']);
+        }
+
+        if($license->product_id != $request->pid)
         {
             return response()->json(['status' => 'error', 'message' => 'Invalid Product.']);
         }

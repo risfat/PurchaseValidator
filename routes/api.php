@@ -22,5 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'v3'], function () {
 
     route::get('/verify/{key}/{domain}/{cid}/{pid}/',[LicenseController::class, 'verify']);
+    route::post('/license/verify',[LicenseController::class, 'verify_license']);
 
 });

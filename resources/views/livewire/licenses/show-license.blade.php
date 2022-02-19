@@ -17,7 +17,7 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="form-label" for="product">Product</label>
-                                <input type="text" class="form-control" value="{{ $product->name }}"
+                                <input type="text" class="form-control" value="{{ $product->name }} || PID: {{ $product->id }}"
                                     id="product_name" name="product_name" placeholder="Product Name" readonly>
                             </div>
                         </div>
@@ -127,24 +127,12 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="coupon-end-date" class="form-label">License Status <span
-                                        class="text-danger">*</span></label>
+                                        class="text-danger">*</span></label> <br>
                                 @if ($license->status == 1)
-                                    <div class="form-check mb-2 form-check-success">
-                                        <input class="form-check-input" type="radio" name="status" value="1"
-                                            id="customradio1" checked readonly>
-                                        <label class="form-check-label" for="customradio1">Active</label>
-                                    </div>
-
+                                <button type="button" class="btn btn-success btn-xs waves-effect waves-light">Active</button>
                                 @else
-
-                                    <div class="form-check mb-2 form-check-danger">
-                                        <input class="form-check-input" type="radio" name="status" value="0"
-                                            id="customradio" checked readonly>
-                                        <label class="form-check-label" for="customradio">Suspended</label>
-                                    </div>
+                                <button type="button" class="btn btn-danger btn-xs waves-effect waves-light">Suspended</button>
                                 @endif
-
-
 
                             </div>
 

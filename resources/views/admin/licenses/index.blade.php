@@ -62,7 +62,7 @@
                                             <label for="search-select" class="me-2">Search By</label>
                                             <div class="me-sm-3">
                                                 <select class="form-select form-select my-1 my-lg-0" id="search-type">
-                                                    <option selected value="filter[deposits.id]">Deposit ID</option>
+                                                    <option selected value="filter[deposits.id]">License ID</option>
                                                     <option value="filter[users.id]">Customer ID</option>
                                                     <option value="filter[users.name]">Customer Name</option>
                                                     <option value="filter[users.email]">Customer Email</option>
