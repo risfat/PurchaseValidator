@@ -7,6 +7,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\LicenseController;
+use App\Http\Controllers\CommandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,6 +85,15 @@ Route::group(['prefix' => 'admin' , 'middleware' => ['auth','role:admin|superadm
     /* ------------------------------ Apps Routes ----------------------------- */
 
     Route::get('/calendar', [AppController::class, 'calendar'])->name('admin.calendar');
+
+
+    /* -------------------------------- Commands -------------------------------- */
+
+    Route::get('/commands/down', [CommandController::class, 'down'])->name('maintenance.down');
+    Route::get('/commands/up', [CommandController::class, 'up'])->name('maintenance.up');
+
+    Route::get('/commands/optimize', [CommandController::class, 'optimize'])->name('optimize');
+    Route::get('/commands/clear', [CommandController::class, 'clear'])->name('clear');
 
 
 });
