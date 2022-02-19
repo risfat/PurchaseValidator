@@ -302,24 +302,24 @@ $user = Auth::user();
                 <div class="logo-box">
                     <a href="{{ route('admin.dashboard') }}" class="logo logo-dark text-center">
                         <span class="logo-sm">
-                            <img src="{{ asset('images/logo.png') }}" alt="" height="30"
+                            <img src="{{ asset('images/logo_light.png') }}" alt="" height="30"
                                 width="80">
                             {{-- <span class="logo-lg-text-light">{{ $site_name }}</span> --}}
                         </span>
                         <span class="logo-lg">
-                            <img src="{{ asset('images/logo.png') }}" alt="" height="26">
+                            <img src="{{ asset('images/logo_light.png') }}" alt="" height="26">
                             {{-- <span class="logo-lg-text-light">{{ $site_name }}</span> --}}
                         </span>
                     </a>
 
                     <a href="{{ route('admin.dashboard') }}" class="logo logo-light text-center">
                         <span class="logo-sm">
-                            <img src="{{ asset('images/logo.png') }}" alt="" height="30"
+                            <img src="{{ asset('images/logo_light.png') }}" alt="" height="42"
                                 width="80">
                             {{-- <span class="logo-lg-text-light">{{ $site_name }}</span> --}}
                         </span>
                         <span class="logo-lg">
-                            <img src="{{ asset('images/logo.png') }}" alt="" height="26">
+                            <img src="{{ asset('images/logo_light.png') }}" alt="" height="48">
                             {{-- <span class="logo-lg-text-light">{{ $site_name }}</span> --}}
                         </span>
                     </a>
