@@ -510,6 +510,33 @@ $user = Auth::user();
                         </li>
 
                         <li>
+                            <a href="#sidebarDeposits" data-bs-toggle="collapse">
+                                <i class="mdi mdi-account-cash-outline"></i>
+                                <span> Deposits </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <div class="collapse" id="sidebarDeposits">
+                                <ul class="nav-second-level">
+                                    <li>
+                                        <a href="{{ route('deposit.index') }}">All Deposit</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('deposit.pending') }}">Pending Deposit</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('deposit.processing') }}">Processing Deposit</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('deposit.completed') }}">Completed Deposit</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('deposit.cancelled') }}">Declined Deposit</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li>
                             <a href="#sidebarCustomers" data-bs-toggle="collapse">
                                 <i class="mdi mdi-account-multiple-outline"></i>
                                 <span> Customers </span>

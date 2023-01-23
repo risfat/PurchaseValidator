@@ -8,6 +8,7 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\LicenseController;
 use App\Http\Controllers\CommandController;
+use App\Http\Controllers\DepositController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +69,23 @@ Route::group(['prefix' => 'admin' , 'middleware' => ['auth','role:admin|superadm
 
 
 
+    /* ------------------------------ Deposit Routes ------------------------------ */
+
+    Route::get('/deposit', [DepositController::class, 'index'])->name('deposit.index');
+    Route::get('/deposit/pending', [DepositController::class, 'pending'])->name('deposit.pending');
+    Route::get('/deposit/processing', [DepositController::class, 'processing'])->name('deposit.processing');
+    Route::get('/deposit/completed', [DepositController::class, 'completed'])->name('deposit.completed');
+    Route::get('/deposit/cancelled', [DepositController::class, 'cancelled'])->name('deposit.cancelled');
+
+    Route::get('/deposit/create', [DepositController::class, 'create'])->name('deposit.create');
+    Route::get('/deposit/{id}/details', [DepositController::class, 'details'])->name('deposit.details');
+    Route::post('/deposit/{id}/update', [DepositController::class, 'update'])->name('deposit.update');
+    Route::get('/deposit/{id}/delete', [DepositController::class, 'delete'])->name('deposit.delete');
+
+    Route::get('/deposit/{id}', [DepositController::class, 'ajax_deposit'])->name('ajax.deposit');
+    Route::post('/deposit/update', [DepositController::class, 'deposit_update_ajax'])->name('deposit.update.ajax');
+
+
     /* --------------------------------- Tickets -------------------------------- */
 
     Route::get('/support/ticket', [TicketController::class, 'index'])->name('ticket.index');
@@ -95,5 +113,13 @@ Route::group(['prefix' => 'admin' , 'middleware' => ['auth','role:admin|superadm
     Route::get('/commands/optimize', [CommandController::class, 'optimize'])->name('optimize');
     Route::get('/commands/clear', [CommandController::class, 'clear'])->name('clear');
 
+
+});
+
+
+Route::group(['prefix' => 'user' , 'middleware' => ['auth','role:user|admin|superadmin']], function () {
+
+    Route::get('/pay/{for}', [DepositController::class, 'pay'])->name('user.pay');
+    Route::post('/process/payment', [DepositController::class, 'processPayment'])->name('process.payment');
 
 });
