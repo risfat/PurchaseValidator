@@ -83,7 +83,7 @@ class CustomerController extends Controller
             $imageName = str_replace(' ', '_', $imageName);
             $imgFile = Image::make($image->getRealPath());
             $imgFile->resize(200, 200);
-            $imgFile->save(public_path('uploads/images/profiles/'). $imageName, 60);
+            $imgFile->save('uploads/images/profiles/'. $imageName, 60);
             $user->image = $imageName;
         }
 
@@ -153,7 +153,7 @@ class CustomerController extends Controller
             $imageName = str_replace(' ', '_', $imageName);
             $imgFile = Image::make($image->getRealPath());
             $imgFile->resize(200, 200);
-            $imgFile->save(public_path('uploads/images/profiles/'). $imageName, 60);
+            $imgFile->save('uploads/images/profiles/'. $imageName, 60);
             $user->image = $imageName;
         }
 
@@ -175,7 +175,13 @@ class CustomerController extends Controller
     public function delete($id)
     {
 
-        User::find($id)->delete();
+        $user = User::find($id);
+        $user->delete();
+
+        $imgPath = public_path('uploads/images/products/').$user->image;
+        if (file_exists($imgPath)) {
+            unlink($imgPath);
+        }
 
         return redirect()->route('customer.index')->withSuccess('Customer Deleted Successfully');
     }

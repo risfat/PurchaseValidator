@@ -51,12 +51,12 @@ class ProductController extends Controller
         /* ------------------------------Product Image------------------------------- */
 
         $image = $request->file('image');
-        $imageName = $image->getClientOriginalName();
-        $imageName = rand(1,100).'_'.$imageName;
+        $ext = $image->getClientOriginalExtension();
+        $imageName = $request->name . '.' . $ext;
         $imageName = str_replace(' ', '_', $imageName);
         $imgFile = Image::make($image->getRealPath());
         $imgFile->resize(270, 350);
-        $imgFile->save(public_path('uploads/images/products/'). $imageName, 90);
+        $imgFile->save('uploads/images/products/'. $imageName, 90);
         $product_image = $imageName;
 
         Product::create([
@@ -121,12 +121,12 @@ class ProductController extends Controller
         if ($request->hasFile('image')) {
 
             $image = $request->file('image');
-            $imageName = $image->getClientOriginalName();
-            $imageName = rand(1,100).'_'.$imageName;
+            $ext = $image->getClientOriginalExtension();
+            $imageName = $request->name . '.' . $ext;
             $imageName = str_replace(' ', '_', $imageName);
             $imgFile = Image::make($image->getRealPath());
             $imgFile->resize(270, 350);
-            $imgFile->save(public_path('uploads/images/products/'). $imageName, 90);
+            $imgFile->save('uploads/images/products/'. $imageName, 90);
             $product->image = $imageName;
 
         }
